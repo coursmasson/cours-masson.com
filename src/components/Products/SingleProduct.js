@@ -3,6 +3,7 @@ import MailingList from '../global/MailingList';
 import { connect } from 'react-redux';
 import ProductImage from './ProductImage';
 import * as api from '../../utils/moltin';
+import { updateQuantity } from '../../actions/actions.js';
 
 const mapStateToProps = state => {
   return (
@@ -23,12 +24,14 @@ class SingleProduct extends Component {
       })
 
       var product = productArray[0];
-
-      var updateQuantity = (quantity) => {
+      
+      const boundUpdateQuantity = (quantity) => {
         this.props.dispatch((dispatch) => {
-            dispatch({type: "Update_Quantity", payload: quantity})
+            dispatch(updateQuantity(quantity))
         })
       }
+      
+      
 
       var addToCart = (id) => {
         this.props.dispatch((dispatch) => {
@@ -77,9 +80,9 @@ class SingleProduct extends Component {
                           <div className="quantity-input">
                               <p className="hide-content">Product quantity.</p>
                               <p className="hide-content">Change the quantity by using the buttons, or alter the input directly.</p>
-                              <button type="button" className="decrement number-button" onClick={() => {updateQuantity(this.props.product.quantity - 1)}} ><span className="hide-content">Decrement quantity</span><span aria-hidden="true">-</span></button>
+                              <button type="button" className="decrement number-button" onClick={() => {boundUpdateQuantity(this.props.product.quantity - 1)}} ><span className="hide-content">Decrement quantity</span><span aria-hidden="true">-</span></button>
                               <input className="quantity" name="number" type="number" min="1" max="10"  value={this.props.product.quantity} size="2" onChange={(event) => {updateQuantity(event.target.value)}}/>
-                              <button type="button" className="increment number-button" onClick={() => {updateQuantity(this.props.product.quantity + 1);}} ><span className="hide-content" >Increment quantity</span><span aria-hidden="true">+</span></button>
+                              <button type="button" className="increment number-button" onClick={() => {boundUpdateQuantity(this.props.product.quantity + 1);}} ><span className="hide-content" >Increment quantity</span><span aria-hidden="true">+</span></button>
                           </div>
                           <button type="submit" className="submit" onClick={(e) => {addToCart(product.id);console.log(this.props.product.quantity); e.preventDefault()}}>Add to cart</button>
                       </form>
