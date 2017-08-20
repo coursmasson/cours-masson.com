@@ -4,6 +4,7 @@ export const Fetch_Products_End = 'Fetch_Products_End';
 export const Fetch_Categories_Start = 'Fetch_Categories_Start';
 export const Fetch_Categories_End = 'Fetch_Categories_End';
 export const Initial_Style = 'Initial_Style';
+export const Change_Style = 'Change_Style';
 export const Fetch_Collections_Start = 'Fetch_Collections_Start';
 export const Fetch_Collections_End = 'Fetch_Collections_End';
 
@@ -71,6 +72,14 @@ export function GetCategories() {
 export function InitialStyle(style) {
   return {
     type: Initial_Style,
+    style: style,
+    header: style
+  }
+}
+
+export function ChangeStyle(style) {
+  return {
+    type: Change_Style,
     style: style,
     header: style
   }

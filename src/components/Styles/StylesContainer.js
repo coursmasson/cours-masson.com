@@ -8,9 +8,7 @@ import StyleProducts from './StyleProducts';
 import Loading from '../global/Loading';
 import { connect } from 'react-redux';
 import MobileNav from '../global/Mobile/MobileNav';
-import { GetProducts } from '../../actions/actions.js';
-import { GetCategories } from '../../actions/actions.js';
-import { InitialStyle } from '../../actions/actions.js';
+import { GetProducts, GetCategories, InitialStyle } from '../../actions/actions.js';
 
 function mapStateToProps(state) {
     return(state)
