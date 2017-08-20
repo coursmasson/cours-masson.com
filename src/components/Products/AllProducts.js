@@ -21,7 +21,6 @@ class AllProducts extends Component {
             <div className="content">
               <div className="product-list">
                 {products.data.map(function(product) {
-                  console.log(product.background_colour);
                   
                   let background;
                   if(product.background_colour) {
