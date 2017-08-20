@@ -11,7 +11,7 @@ class AllProducts extends Component {
 
   render() {
 
-    if(this.props.css !== null && this.props.products.products.data.length > 0) {
+    if(this.props.products.products.data.length > 0) {
 
       var products = this.props.products.products;
 
