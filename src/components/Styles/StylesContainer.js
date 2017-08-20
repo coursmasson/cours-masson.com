@@ -47,7 +47,6 @@ class StylesContainer extends Component {
       })
     }
 
-
     const boundGetProducts = () => {
       this.props.dispatch((dispatch) => {
           dispatch(GetProducts())
@@ -62,7 +61,6 @@ class StylesContainer extends Component {
     // check if we already have a moltin products in the store
     if(this.props.categories.fetched === false) {
       boundGetCategoriesAndInitialStyle();  
-  
     }
 
   }

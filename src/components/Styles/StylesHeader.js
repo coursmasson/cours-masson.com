@@ -46,7 +46,6 @@ class StylesHeader extends Component {
       break;
       default: Header = null;
     }
-    console.log(this.props.styles.header)
     
     return (
       <header className="medium-header light push" style={{"backgroundImage": `url(${Header})`, "backgroundRepeat": "no-repeat", "backgroundSize": "cover", "backgroundPosition": "center", "backgroundOrigin": "border-box", "backgroundAttachment": "scroll"}}>

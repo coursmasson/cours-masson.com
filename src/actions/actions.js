@@ -4,6 +4,8 @@ export const Fetch_Products_End = 'Fetch_Products_End';
 export const Fetch_Categories_Start = 'Fetch_Categories_Start';
 export const Fetch_Categories_End = 'Fetch_Categories_End';
 export const Initial_Style = 'Initial_Style';
+export const Fetch_Collections_Start = 'Fetch_Collections_Start';
+export const Fetch_Collections_End = 'Fetch_Collections_End';
 
 var api = require('../utils/moltin.js');
 
@@ -73,3 +75,29 @@ export function InitialStyle(style) {
     header: style
   }
 }
+
+export function FetchCollectionsStart() {
+  return {
+    type: Fetch_Collections_Start
+  }
+};
+
+export function FetchCollectionsEnd(data) {
+  return {
+    type: Fetch_Collections_End,
+    payload: data
+  }
+};
+
+export function GetCollections() {
+  return function (dispatch) {
+      
+      dispatch(FetchCollectionsStart())
+
+      return api.GetCollections()
+      
+        .then((collections) => {
+          dispatch(FetchCollectionsEnd(collections))
+        }) 
+    }
+};
