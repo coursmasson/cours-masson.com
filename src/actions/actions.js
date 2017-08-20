@@ -7,6 +7,8 @@ export const Initial_Style = 'Initial_Style';
 export const Change_Style = 'Change_Style';
 export const Fetch_Collections_Start = 'Fetch_Collections_Start';
 export const Fetch_Collections_End = 'Fetch_Collections_End';
+export const Fetch_Cart_Start = 'Fetch_Cart_Start';
+export const Fetch_Cart_End = 'Fetch_Cart_End';
 
 var api = require('../utils/moltin.js');
 
@@ -110,3 +112,29 @@ export function GetCollections() {
         }) 
     }
 };
+
+export function FetchCartStart() {
+  return {
+    type: Fetch_Cart_Start
+  }
+};
+
+export function FetchCartEnd(cart) {
+  return {
+    type: Fetch_Cart_End,
+    payload: cart
+  }
+}
+
+export function GetCart() {
+  return function (dispatch) {
+      
+      dispatch(FetchCartStart())
+
+      return api.GetCartItems()
+      
+        .then((collections) => {
+          dispatch(FetchCartEnd(collections))
+        }) 
+    }
+}
