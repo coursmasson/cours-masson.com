@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import MailingList from '../global/MailingList';
-import ProductImage from './ProductImage';
 
 function mapStateToProps(state) {
     return(state)
@@ -11,45 +10,66 @@ class AllProducts extends Component {
 
   render() {
 
-    if(this.props.css !== null && this.props.products.products.data.length > 0) {
+    if(this.props.css !== null && this.props.products.products && this.props.products.products.data.length > 0) {
 
       var products = this.props.products.products;
 
       return (
-        <main role="main" id="container" className="main-container push">
-          <section className="products">
-            <div className="content">
-              <div className="product-list">
+        <div className="courses">
                 {products.data.map(function(product) {
                   console.log(product.background_colour);
-                  
+
                   let background;
                   if(product.background_colour) {
                     background = product.background_colour
                   } else {
                     background = '#d9d9d9';
                   }
-                  
+
                   return (
-                    <a className="product-item" href={"/product/" + product.id} key={product.id} >
-                      // <div className="product-image" style={{"background": background}}>
-                      //     <ProductImage product={product} products={products}/>
-                      // </div>
-                      <div className='overlay'>
-                        <div className="overlay-background" style={{"background": "#aaaaaa"}}></div>
-                        <div className="overlay-content">
-                          <div className="title">{product.name}</div>
-                          <div className="price">{'$' + product.meta.display_price.with_tax.amount/100}</div>
-                        </div>
+
+                      <div className="course">
+                        <a href={"/product/" + product.id} key={product.id}>
+                          <div className="course__image">
+                            <img src="images/temp/math.jpg" alt="" />
+
+                            <span className="course__image-label">60 heures</span>
+                          </div>
+
+                          <div className="course__content">
+                            <h4>-</h4>
+
+                            <h3>{product.name}</h3>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
+
+                            <h4>Niveau</h4>
+
+                            <div className="course__foot">
+                              <div className="course__foot-inner">
+                                <p className="course__date">
+                                  <i className="ico-calendar"></i>
+
+                                  Du 15/10:2017 au 20/10/2017
+                            </p>
+
+                                <p className="course__location">
+                                  <i className="ico-location"></i>
+
+                                  Paris, 75008
+                            </p>
+                              </div>
+
+                              <span className="course__price">
+                                {product.meta.display_price.with_tax.amount/100} €
+                          </span>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                    </a>
                   )
                 })}
-              </div>
-            </div>
-          </section>
-          <MailingList />
-        </main>
+        </div>
       )
 
     }

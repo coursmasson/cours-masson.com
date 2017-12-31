@@ -6,6 +6,9 @@ import ProductHeader from './ProductHeader';
 import { connect } from 'react-redux';
 import Loading from '../global/Loading';
 import MobileNav from '../global/Mobile/MobileNav';
+
+import HomeHeader from '../Home/HomeHeader';
+import HomeIntro from '../Home/HomeIntro';
 var api = require('../../utils/moltin.js');
 
 function mapStateToProps(state) {
@@ -43,23 +46,21 @@ class Product extends Component {
     if(this.props.products.products) {
       return (
         <div>
-          <MobileNav />
-          <ProductHeader />
+          <HomeHeader />
+          <HomeIntro />
+        <div className="main">
+          <div className="section-courses">
+            <div className="shell">
           <SingleProduct />
-          <Footer />
-        </div>
+          </div>
+          </div>
+          </div>
+          </div>
       )
     }
 
     else {
-      return (
-        <div>
-          <MobileNav />
-          <CartHeader />
-          <Loading />
-          <Footer />
-        </div>
-      )
+      return null
     }
 
   };

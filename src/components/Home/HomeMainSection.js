@@ -1,9 +1,51 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import AllProducts from '../Products/AllProducts';
 import TopPicksContainer from './TopPicksContainer';
 import CategoriesContainer from '../Categories/CategoriesContainer';
 import MailingList from '../global/MailingList';
+var api = require('../../utils/moltin.js');
+
+
+const mapStateToProps = state => {
+  return {
+    products: state.products
+  }
+}
 
 class HomeMainSection extends Component {
+  componentWillMount() {
+       const script = document.createElement("script");
+
+       script.src = "../../js/production.min.js";
+       script.async = false;
+
+       document.body.appendChild(script);
+   }
+
+    // a react lifecycle event, read more at http://busypeoples.github.io/post/react-component-lifecycle/
+    componentDidMount() {
+
+      // check if we already have a moltin products in the store
+      if(this.props.products.fetched === false) {
+
+        // dispatch an action to our redux reducers
+        this.props.dispatch((dispatch) => {
+
+            // this action will set a fetching field to true
+            dispatch({type: "Fetch_Products_Start"})
+
+            // get the moltin products from the API
+            api.GetProducts()
+
+            .then((products) => {
+              /* now that we have the products, this action will set fetching to false and fetched to true,
+              as well as add the moltin products to the store */
+              dispatch({type: "Fetch_Products_End", payload: products})
+            })
+        })
+      }
+    }
   render() {
     return (
       <div className="main">
@@ -19,487 +61,8 @@ class HomeMainSection extends Component {
               </select>
             </div>
 
-            <div className="courses">
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
 
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="course">
-                <a href="#">
-                  <div className="course__image">
-                    <img src="images/temp/math.jpg" alt="" />
-
-                    <span className="course__image-label">60 heures</span>
-                  </div>
-
-                  <div className="course__content">
-                    <h4>Mathématiques</h4>
-
-                    <h3>Nom Du Stage Sur 2 Lignes Maximum</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-                    <h4>Niveau</h4>
-
-                    <div className="course__foot">
-                      <div className="course__foot-inner">
-                        <p className="course__date">
-                          <i className="ico-calendar"></i>
-
-                          Du 15/10:2017 au 20/10/2017
-                    </p>
-
-                        <p className="course__location">
-                          <i className="ico-location"></i>
-
-                          Paris, 75008
-                    </p>
-                      </div>
-
-                      <span className="course__price">
-                        1500 €
-                  </span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
+            <AllProducts/>
 
             <div className="paging">
               <ul>
@@ -647,4 +210,4 @@ class HomeMainSection extends Component {
   }
 }
 
-export default HomeMainSection;
+export default connect(mapStateToProps)(HomeMainSection);
