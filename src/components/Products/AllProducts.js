@@ -19,14 +19,14 @@ class AllProducts extends Component {
         <div className="courses">
           {products.data.map(function (product) {
             console.log(product.background_colour);
-            let stage = stages ? stages.list[product.name] : {};
+            let stage = stages ? stages.list[product.sku] : {};
             let background;
             if (product.background_colour) {
               background = product.background_colour
             } else {
               background = '#d9d9d9';
             }
-
+            
             return (
 
               <div className="course">
@@ -34,7 +34,7 @@ class AllProducts extends Component {
                   <div className="course__image">
                     <img src="images/temp/math.jpg" alt="" />
 
-                    <span className="course__image-label">{stage.period != undefined ? stage.period.duration : 0} heures</span>
+                    <span className="course__image-label">{stage.period !== undefined ? stage.period.duration : 0} heures</span>
                   </div>
 
                   <div className="course__content">
@@ -51,7 +51,7 @@ class AllProducts extends Component {
                         <p className="course__date">
                           <i className="ico-calendar"></i>
                           {
-                            stage.period.sessionType == 'continue' ?
+                            stage.period.sessionType === 'continue' ?
                               <span>Du {stage.period.continueDates ? moment(stage.period.continueDates[0]).format('DD/MM/YYYY') : '-'} au {stage.period.continueDates ? moment(stage.period.continueDates[stage.period.continueDates.length - 1]).format('DD/MM/YYYY') : '-'}
                               </span>
                               :
