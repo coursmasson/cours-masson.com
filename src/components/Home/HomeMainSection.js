@@ -9,6 +9,7 @@ var api = require('../../utils/moltin.js');
 
 const mapStateToProps = state => {
   return {
+    stages: state.stages,
     products: state.products
   }
 }

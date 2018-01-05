@@ -6,6 +6,9 @@ import Footer from '../global/Footer';
 import MobileNav from '../global/Mobile/MobileNav';
 import Loading from '../global/Loading';
 import { connect } from 'react-redux';
+
+import firebase from '../../utils/firebase';
+
 // import the moltin api utility
 var api = require('../../utils/moltin.js');
 
@@ -28,56 +31,32 @@ class Home extends Component {
   // a react lifecycle event, read more at http://busypeoples.github.io/post/react-component-lifecycle/
   componentDidMount() {
 
-    // check if we already have a moltin products in the store
-    if (this.props.products.fetched === false) {
+    // check if we already have a moltin stages in the store
+    if (this.props.stages.fetched === false) {
 
       // dispatch an action to our redux reducers
       this.props.dispatch((dispatch) => {
 
         // this action will set a fetching field to true
-        dispatch({ type: "Fetch_Products_Start" })
+        dispatch({ type: "Fetch_Stages_Start" })
 
-        // get the moltin products from the API
-        api.GetProducts()
+        // get the moltin stages from the API
+        this.firebaseRef = firebase.database().ref("stages");
 
-          .then((products) => {
-            /* now that we have the products, this action will set fetching to false and fetched to true,
-            as well as add the moltin products to the store */
-            dispatch({ type: "Fetch_Products_End", payload: products })
-          })
+        this.firebaseRef.on('value', stages => {
+          /* now that we have the stages, this action will set fetching to false and fetched to true,
+          as well as add the moltin stages to the store */
+          if (stages.val() != null) {
+            dispatch({ type: "Fetch_Stages_End", payload: stages.val() })
+          }
+        })
       })
     }
-
-    // now we do the same thing for categories
-    if (this.props.categories.fetched === false) {
-      this.props.dispatch((dispatch) => {
-        dispatch({ type: "Fetch_Categories_Start" })
-
-        api.GetCategories()
-
-          .then((categories) => {
-            dispatch({ type: "Fetch_Categories_End", payload: categories })
-          })
-      })
-    }
-
-    // then collections
-    if (this.props.collections.fetched === false) {
-      this.props.dispatch((dispatch) => {
-        dispatch({ type: "Fetch_Collections_Start" })
-
-        api.GetCollections()
-
-          .then((collections) => {
-            dispatch({ type: "Fetch_Collections_End", payload: collections })
-          })
-      })
-    }
-
   }
 
   render() {
-    if (this.props.collections.collections !== null && this.props.products.products !== null && this.props.categories.categories !== null) {
+    if (this.props.stages.stages !== null) {
+      debugger;
       return (
         <div>
           <HomeHeader />
@@ -91,7 +70,7 @@ class Home extends Component {
         <div>
           <HomeHeader />
           <HomeIntro />
-          <HomeMainSection />
+          <Loading />
         </div>
       );
     }

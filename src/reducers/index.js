@@ -5,6 +5,7 @@ import { combineReducers } from 'redux';
 
 // import our individual reducers so we can combine them
 import products from './products';
+import stages from './stages';
 import product from './product';
 import collections from './collections';
 import cart from './cart';
@@ -20,6 +21,7 @@ import { routerReducer } from 'react-router-redux';
 export default combineReducers({
   product,
   products,
+  stages,
   collections,
   cart,
   categories,

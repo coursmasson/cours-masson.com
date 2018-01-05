@@ -1,21 +1,21 @@
 const initialState = {
   fetching: false,
   fetched: false,
-  products: null,
+  stages: null,
   error: null
 }
 
-const ProductsReducer = (state = initialState, action) => {
+const StagesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "Fetch_Products_Start": {
+    case "Fetch_Stages_Start": {
       return { ...state, fetching: true };
     }
-    case "Fetch_Products_End": {
+    case "Fetch_Stages_End": {
       return {
         ...state,
         fetching: false,
         fetched: true,
-        products: action.payload
+        stages: action.payload
       };
     }
     default: {
@@ -24,4 +24,4 @@ const ProductsReducer = (state = initialState, action) => {
   }
 };
 
-export default ProductsReducer;
+export default StagesReducer;
