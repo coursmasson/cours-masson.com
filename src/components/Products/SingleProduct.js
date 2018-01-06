@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from 'react-router'
 import AllProducts from "../Products/AllProducts";
 import CategoriesContainer from "../Categories/CategoriesContainer";
 import MailingList from "../global/MailingList";
 import * as api from "../../utils/moltin";
 
-const mapStateToProps = state => {
-  return {
-    products: state.products
-  };
-};
+
 
 class SingleProduct extends Component {
   componentWillMount() {
@@ -22,77 +19,12 @@ class SingleProduct extends Component {
   }
 
   // a react lifecycle event, read more at http://busypeoples.github.io/post/react-component-lifecycle/
-  componentDidMount() {
-    // check if we already have a moltin products in the store
-    if (this.props.products.fetched === false) {
-      // dispatch an action to our redux reducers
-      this.props.dispatch(dispatch => {
-        // this action will set a fetching field to true
-        dispatch({ type: "Fetch_Products_Start" });
-
-        // get the moltin products from the API
-        api
-          .GetProducts()
-
-          .then(products => {
-            /* now that we have the products, this action will set fetching to false and fetched to true,
-              as well as add the moltin products to the store */
-            dispatch({ type: "Fetch_Products_End", payload: products });
-          });
-      });
-    }
-  }
+ 
   render() {
-    var products = this.props.products.products;
-
-    var ID = window.location.pathname.slice(9, 100);
-
-    var productArray = this.props.products.products.data.filter(function(
-      product
-    ) {
-      return product.id === ID;
-    });
-    console.log("productArray is ", productArray);
-    var product = productArray[0];
-    product.quantity = 0;
-
-    var updateQuantity = quantity => {
-      this.props.dispatch(dispatch => {
-        dispatch({ type: "Update_Quantity", payload: quantity });
-      });
-    };
-
-    var addToCart = id => {
-      this.props.dispatch(dispatch => {
-        api
-          .AddCart(id, this.props.product.quantity)
-
-          .then(cart => {
-            console.log(cart);
-            dispatch({ type: "Cart_Updated", gotNew: false });
-          })
-
-          .then(() => {
-            dispatch({ type: "Fetch_Cart_Start", gotNew: false });
-
-            api
-              .GetCartItems()
-
-              .then(cart => {
-                dispatch({
-                  type: "Fetch_Cart_End",
-                  payload: cart,
-                  gotNew: true
-                });
-              });
-          })
-          .catch(e => {
-            console.log(e);
-          });
-      });
-    };
-
-    var background = product.background_colour;
+    debugger;
+    let product = this.props.product;
+    let currentStage = this.props.currentStage;
+    debugger;
     if (product) {
       return (
         <div className="main">
@@ -892,4 +824,4 @@ class SingleProduct extends Component {
     }
   }
 }
-export default connect(mapStateToProps)(SingleProduct);
+export default SingleProduct

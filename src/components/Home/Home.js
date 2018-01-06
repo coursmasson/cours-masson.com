@@ -36,24 +36,7 @@ class Home extends Component {
     if (this.props.stages.fetched === false) {
 
       this.props.dispatch(fetchProductsAndStages())
-      /*
-      // dispatch an action to our redux reducers
-      this.props.dispatch((dispatch) => {
 
-        // this action will set a fetching field to true
-        dispatch({ type: "Fetch_Stages_Start" })
-
-        // get the moltin stages from the API
-        this.firebaseRef = firebase.database().ref("stages");
-
-        this.firebaseRef.on('value', stages => {
-          // now that we have the stages, this action will set fetching to false and fetched to true,
-         // as well as add the moltin stages to the store 
-          if (stages.val() != null) {
-            dispatch({ type: "Fetch_Stages_End", payload: stages.val() })
-          }
-        })
-      })*/
     } 
   }
 

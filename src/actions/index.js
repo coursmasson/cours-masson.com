@@ -45,12 +45,7 @@ export const fetchProductsAndStages = () => {
   return dispatch => {
     dispatch(fetchProductsStart());
     dispatch(fetchStagesStart());
-    console.log(
-      firebase
-        .database()
-        .ref()
-        .child("stages")
-    );
+
     api
       .GetProducts()
       .then(productsData => {

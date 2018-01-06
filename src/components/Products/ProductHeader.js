@@ -20,13 +20,13 @@ class ProductHeader extends Component {
   
   render() {
     
-    var ID = this.props.router.location.pathname.slice(9, 100)
+    // var ID = this.props.router.location.pathname.slice(9, 100)
 
-    var productArray = this.props.products.products.data.filter(function(product) {
-      return product.id === ID;
-    })
+    // var productArray = this.props.products.products.data.filter(function(product) {
+    //   return product.id === ID;
+    // })
 
-    var product = productArray[0];
+    let product = this.props.product
     
     var toProducts = () => {
       this.props.dispatch((dispatch) => {
