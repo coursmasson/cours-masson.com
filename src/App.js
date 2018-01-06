@@ -30,7 +30,6 @@ const mapStateToProps = state => {
 // initialize our component
 class App extends Component {
 
-
   render() {
 
     return (

@@ -18,9 +18,8 @@ const StagesReducer = (state = initialState, action) => {
         stages: action.payload
       };
     }
-    default: {
-      return { ...state, fetching: false, error: action.payload };
-    }
+    default: 
+      return state
   }
 };
 

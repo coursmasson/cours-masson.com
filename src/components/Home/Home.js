@@ -7,6 +7,7 @@ import MobileNav from '../global/Mobile/MobileNav';
 import Loading from '../global/Loading';
 import { connect } from 'react-redux';
 
+import { fetchProductsAndStages } from '../../actions'
 import firebase from '../../utils/firebase';
 
 // import the moltin api utility
@@ -34,6 +35,8 @@ class Home extends Component {
     // check if we already have a moltin stages in the store
     if (this.props.stages.fetched === false) {
 
+      this.props.dispatch(fetchProductsAndStages())
+      /*
       // dispatch an action to our redux reducers
       this.props.dispatch((dispatch) => {
 
@@ -44,14 +47,14 @@ class Home extends Component {
         this.firebaseRef = firebase.database().ref("stages");
 
         this.firebaseRef.on('value', stages => {
-          /* now that we have the stages, this action will set fetching to false and fetched to true,
-          as well as add the moltin stages to the store */
+          // now that we have the stages, this action will set fetching to false and fetched to true,
+         // as well as add the moltin stages to the store 
           if (stages.val() != null) {
             dispatch({ type: "Fetch_Stages_End", payload: stages.val() })
           }
         })
-      })
-    }
+      })*/
+    } 
   }
 
   render() {
