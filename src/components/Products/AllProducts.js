@@ -26,7 +26,7 @@ class AllProducts extends Component {
             } else {
               background = '#d9d9d9';
             }
-            
+
             return (
 
               <div className="course">

@@ -534,77 +534,77 @@
 \* ------------------------------------------------------------ */
 
 .ico-arrow-left
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 0% 72.95597484276729%; background-size: 688.8888888888889% 1235.7142857142858%; width: 27px; height: 14px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-arrow-left.png) no-repeat 0 0; background-size: 100% 100%; width: 27px; height: 14px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-arrow-right
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 19.375% 72.95597484276729%; background-size: 715.3846153846155% 1235.7142857142858%; width: 26px; height: 14px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-arrow-right.png) no-repeat 0 0; background-size: 100% 100%; width: 26px; height: 14px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-calendar-red
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 96.98795180722891% 56.86274509803921%; background-size: 930.0000000000001% 865%; width: 20px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-calendar-red.png) no-repeat 0 0; background-size: 100% 100%; width: 20px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-calendar
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 82.53012048192771% 56.86274509803921%; background-size: 930.0000000000001% 865%; width: 20px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-calendar.png) no-repeat 0 0; background-size: 100% 100%; width: 20px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-card
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 0% 52.71317829457365%; background-size: 310% 393.1818181818182%; width: 60px; height: 44px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-card.png) no-repeat 0 0; background-size: 100% 100%; width: 60px; height: 44px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-check
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 0% 84.81012658227847%; background-size: 978.9473684210526% 1153.3333333333333%; width: 19px; height: 15px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-check.png) no-repeat 0 0; background-size: 100% 100%; width: 19px; height: 15px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-contract
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 58.26771653543307% 0%; background-size: 315.2542372881356% 270.3125%; width: 59px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-contract.png) no-repeat 0 0; background-size: 100% 100%; width: 59px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-facebook
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 59.171597633136095% 46.89655172413793%; background-size: 1094.1176470588236% 617.8571428571429%; width: 17px; height: 28px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-facebook.png) no-repeat 0 0; background-size: 100% 100%; width: 17px; height: 28px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-location-red
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 0% 100%; background-size: 1430.769230769231% 865%; width: 13px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-location-red.png) no-repeat 0 0; background-size: 100% 100%; width: 13px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-location
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 9.826589595375722% 100%; background-size: 1430.769230769231% 865%; width: 13px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-location.png) no-repeat 0 0; background-size: 100% 100%; width: 13px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-people
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 0% 0%; background-size: 265.7142857142857% 270.3125%; width: 70px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-people.png) no-repeat 0 0; background-size: 100% 100%; width: 70px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-person
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 41.55844155844156% 48.226950354609926%; background-size: 581.25% 540.625%; width: 32px; height: 32px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-person.png) no-repeat 0 0; background-size: 100% 100%; width: 32px; height: 32px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-phone
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 100% 0%; background-size: 379.5918367346939% 353.0612244897959%; width: 49px; height: 49px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-phone.png) no-repeat 0 0; background-size: 100% 100%; width: 49px; height: 49px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 .ico-twitter
-{ background-image: url(../images/src/assets/images/sprite.png); background-position: 91.33333333333333% 37.06293706293706%; background-size: 516.6666666666667% 576.6666666666666%; width: 36px; height: 30px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-twitter.png) no-repeat 0 0; background-size: 100% 100%; width: 36px; height: 30px; display: inline-block; vertical-align: middle; font-size: 0px; }
 
 @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-resolution: 192dpi)
 {
 	.ico-arrow-left
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 0% 72.95597484276729%; background-size: 688.8888888888889% 1235.7142857142858%; width: 27px; height: 14px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-arrow-left@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 27px; height: 14px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-arrow-right
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 19.375% 72.95597484276729%; background-size: 715.3846153846155% 1235.7142857142858%; width: 26px; height: 14px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-arrow-right@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 26px; height: 14px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-calendar-red
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 96.98795180722891% 56.86274509803921%; background-size: 930.0000000000001% 865%; width: 20px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-calendar-red@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 20px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-calendar
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 82.53012048192771% 56.86274509803921%; background-size: 930.0000000000001% 865%; width: 20px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-calendar@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 20px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-card
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 0% 52.71317829457365%; background-size: 310% 393.1818181818182%; width: 60px; height: 44px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-card@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 60px; height: 44px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-check
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 0% 84.81012658227847%; background-size: 978.9473684210526% 1153.3333333333333%; width: 19px; height: 15px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-check@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 19px; height: 15px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-contract
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 58.26771653543307% 0%; background-size: 315.2542372881356% 270.3125%; width: 59px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-contract@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 59px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-facebook
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 59.171597633136095% 46.89655172413793%; background-size: 1094.1176470588236% 617.8571428571429%; width: 17px; height: 28px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-facebook@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 17px; height: 28px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-location-red
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 0% 100%; background-size: 1430.769230769231% 865%; width: 13px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-location-red@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 13px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-location
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 9.826589595375722% 100%; background-size: 1430.769230769231% 865%; width: 13px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-location@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 13px; height: 20px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-people
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 0% 0%; background-size: 265.7142857142857% 270.3125%; width: 70px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-people@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 70px; height: 64px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-person
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 41.55844155844156% 48.226950354609926%; background-size: 581.25% 540.625%; width: 32px; height: 32px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-person@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 32px; height: 32px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-phone
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 100% 0%; background-size: 379.5918367346939% 353.0612244897959%; width: 49px; height: 49px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-phone@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 49px; height: 49px; display: inline-block; vertical-align: middle; font-size: 0px; }
 	.ico-twitter
-{ background-image: url(../images/src/assets/images/sprite.@2x.png); background-position: 91.33333333333333% 37.06293706293706%; background-size: 516.6666666666667% 576.6666666666666%; width: 36px; height: 30px; display: inline-block; vertical-align: middle; font-size: 0px; }
+{ background: url(../images/src/assets/images/sprite/ico-twitter@2x.png) no-repeat 0 0; background-size: 100% 100%; width: 36px; height: 30px; display: inline-block; vertical-align: middle; font-size: 0px; }
 }
 
 /* ------------------------------------------------------------ *\
@@ -2436,3 +2436,6 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0
 /* ------------------------------------------------------------ *\
 	Themes
 \* ------------------------------------------------------------ */
+
+
+/*# sourceMappingURL=bundle.css.map */
