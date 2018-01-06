@@ -56,18 +56,20 @@ class SingleProduct extends Component {
           })
 console.log('productArray is ', productArray);
           var product = productArray[0];
-          product.quantity = 0;
+
+          product.quantity = product.quantity ? product.quantity : 0;
 
           var updateQuantity = (quantity) => {
             this.props.dispatch((dispatch) => {
-                dispatch({type: "Update_Quantity", payload: quantity})
+                dispatch({type: "Update_Quantity", payload: quantity});
+                product.quantity = quantity;
             })
           }
 
           var addToCart = (id) => {
             this.props.dispatch((dispatch) => {
-
-              api.AddCart(id, this.props.product.quantity)
+              console.log('this.props =>', this.props);
+              api.AddCart(id, product.quantity)
 
               .then((cart) => {
                 console.log(cart)

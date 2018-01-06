@@ -42,7 +42,7 @@ class Cart extends Component {
   };
 
   render() {
-    
+
     var toProducts = () => {
       this.props.dispatch((dispatch) => {
         dispatch(push('/products'))
@@ -55,41 +55,165 @@ class Cart extends Component {
       })
     }
 
-    if(this.props.cart.fetched === true && this.props.cart.fetching === false && this.props.products.fetched === true) {
-      if(this.props.cart.cart.data[0]) {
-        var subtotal = '$' + this.props.cart.cart.meta.display_price.with_tax.amount/100;
+    if(true || this.props.cart.fetched === true && this.props.cart.fetching === false && this.props.products.fetched === true) {
+      if(true || this.props.cart.cart.data[0]) {
+        var subtotal = '$1000';//'$' + this.props.cart.cart.meta.display_price.with_tax.amount/100;
         return (
           <div>
             <MobileNav />
             <CartHeader />
-            <main role="main" id="container" className="main-container push">
+            <div className="main">
+            			<div className="section-cart">
+            				<div className="shell-secondary">
+            					<header className="section__head">
+            						<p>Besoin d’aide pour passer commande ? <a href="#">Contactez-nous</a> ou appelez-nous Au <a href="tel:0143435456">01 43 43 54 56</a></p>
+            					</header>
 
-              <section className="cart">
-                <div className="content">
+            					<div className="cart">
+            						<div className="cart__cols">
+            							<div className="cart__col cart__col--size-1">
+            								<div className="cart__col-inner">
+            									<div className="cart__item">
+            										<h4>Niveau - Matière</h4>
 
-                  <form className="cart-listing" method="post" noValidate>
-                    <div className="cart-list-headings">
+            										<h3>Titre du STAGE sur 2 lignes maximum</h3>
 
-                         <div className="cart-product-header">Product</div>
-                         <div className="cart-header-group">
-                             <div className="cart-empty-header"></div>
-                             <div className="cart-quantity-header">Quantity</div>
-                             <div className="cart-price-header">Price</div>
-                         </div>
+            										<p><span>60</span> heures de cours</p>
 
-                    </div>
-                    <CartItems />
-                    <div className="total-price">
-                      Subtotal<span className="hide-content"> of all products</span> <span className="price">{subtotal}</span>
-                    </div>
+            										<p>
+            											<span>
+            												<i className="ico-calendar-red"></i>
+            											</span>
+
+            											du 17/05/2017 au 19/05/2017
+            										</p>
+
+            										<p>
+            											<span>
+            												<i className="ico-location-red"></i>
+            											</span>
+
+            											54 rue de Ponthieu, Paris 75008
+            										</p>
+            									</div>
+            								</div>
+            							</div>
+
+            							<div className="cart__col cart__col--size-3">
+            								<div className="cart__col-inner">
+            									<div className="cart__info">
+            										<h4 className="cart__title">Quantité</h4>
+
+            										<div className="select-quantity">
+            											<select name="quantity" id="quantity">
+            												<option value="">1</option>
+            												<option value="">2</option>
+            												<option value="">3</option>
+            											</select>
+            										</div>
+            									</div>
+            								</div>
+            							</div>
+
+            							<div className="cart__col cart__col--size-3">
+            								<div className="cart__col-inner">
+            									<div className="cart__info cart__info--alt">
+            										<h4 className="cart__title">TVA 20%</h4>
+
+            										<p>-</p>
+
+            										<span>Non applicable</span>
+            									</div>
+            								</div>
+            							</div>
+
+            							<div className="cart__col cart__col--size-2">
+            								<div className="cart__col-inner">
+            									<div className="cart__info">
+            										<h4 className="cart__title">Prix TTC</h4>
+
+            										<p className="price">1500 €</p>
+            									</div>
+            								</div>
+            							</div>
+            						</div>
+
+            						<div className="cart__total">
+            							<div className="totals">
+            								<div className="total">
+            									<div className="total__inner">
+            										<h4>Total TVA</h4>
+
+            										<p>-</p>
+            									</div>
+            								</div>
+
+            								<div className="total">
+            									<div className="total__inner">
+            										<h4>Total TTC</h4>
+
+            										<p className="sum">1500 €</p>
+            									</div>
+            								</div>
+            							</div>
+            						</div>
+
+            						<div className="cart__actions">
+            							<a href="#" className="btn-info">
+            								<span>Code pormo</span>
+            							</a>
+
+            							<a href="#" className="btn-info">
+            								<span>Coordonnée de facturation</span>
+            							</a>
+
+            							<a href="#" className="btn-danger">Valider</a>
+            						</div>
+            					</div>
+
+            					<ul className="list-features">
+            						<li>
+            							<span>
+            								<i className="ico-contract"></i>
+            							</span>
+
+            							<p>Des stages donnés <br /> par des <strong>professeurs agrégés</strong></p>
+            						</li>
+
+            						<li>
+            							<span>
+            								<i className="ico-people"></i>
+            							</span>
+
+            							<p>Plus de de <strong>800 éléves <br />
+            								déjà satisfaits</strong>
+            							</p>
+            						</li>
+
+            						<li>
+            							<span>
+            								<i className="ico-card"></i>
+            							</span>
+
+            							<p><strong>Paiement sécurisé</strong> par <br /> BNP PARISBAS</p>
+            						</li>
+
+            						<li>
+            							<span>
+            								<i className="ico-phone"></i>
+            							</span>
+
+            							<p>Service Client par téléphone <a className="phone-number">0 800 838 838</a></p>
+            						</li>
+            					</ul>
+            				</div>
+            			</div>
+            		</div>
+            {subtotal}
+
                     <button type="submit" className="submit" href="/checkout" onClick={(e) => {toCheckout();e.preventDefault()}}>Checkout</button>
-                  </form>
-                </div>
-              </section>
-              <MailingList />
-              <Footer />
-            </main>
-          </div>
+                    </div>
+
         )
       }
 
