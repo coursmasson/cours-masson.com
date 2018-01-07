@@ -45,6 +45,10 @@ exports.AddCart = function(id, quantity) {
   return Moltin.Cart.AddProduct(id, quantity)
 }
 
+exports.AddCustomProductToCart = function(body) {
+  return Moltin.Cart.AddCustomItem(body)
+}
+
 exports.UpdateCartPlus = function(ID, quantity) {
   return Moltin.Cart.UpdateItemQuantity(ID, quantity + 1)
 }

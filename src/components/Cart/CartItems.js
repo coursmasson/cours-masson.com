@@ -69,12 +69,21 @@ class CartItems extends Component {
 
     console.log('this.props is ', this.props);
     var items = this.props.cart.cart.data;
+    let coursesItems = [];
+    let attendeesItems = [];
+    items.forEach((item)=> {
+      if(item.type === 'custom_item') {
+        attendeesItems.push(item);
+      } else {
+        coursesItems.push(item);
+      }
+    })
 
     var products = this.props.products.products;
 
     return (
       <div>
-        {items.map(function(item) {
+        {coursesItems.map(function(item) {
           console.log('item is ', item);
 
           var productArray = products.data.filter(function(product) {
@@ -83,13 +92,24 @@ class CartItems extends Component {
 
           var product = productArray[0];
 
-          var background = product.background_colour;
+          var background = product ? product.background_colour : '';
 
           var TotalPriceHidden = "hidden"
 
           if(item.quantity > 1) {
             TotalPriceHidden = ""
           };
+          let attendeeName;
+          let attendeeEmail;
+
+          attendeesItems.forEach((attendeesItem)=> {
+            let attendeeInfo = JSON.parse(attendeesItem.description);
+            console.log('attendeeInfo is ', attendeeInfo);
+            if(product && attendeeInfo.productId === product.id) {
+              attendeeName = attendeeInfo.name;
+              attendeeEmail = attendeeInfo.email;
+            }
+          })
 
           return (
 
@@ -104,7 +124,7 @@ class CartItems extends Component {
                               <h3>{item.name}</h3>
 
                               <p><span>60</span> heures de cours</p>
-
+                              <p>Èlève: {attendeeName} ({attendeeEmail})</p>
                               <p>
                                   <span>
               <i className="ico-calendar-red"></i>

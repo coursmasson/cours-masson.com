@@ -85,6 +85,29 @@ console.log('productArray is ', productArray);
                     dispatch({type: "Fetch_Cart_End", payload: cart, gotNew: true})
                   })
               })
+              .then(()=> {
+                if(window['confirm']("Is this course for yourself?")) {
+
+                } else {
+                  let name = prompt("What's the name of the attendee?");
+                  let email = prompt("What's the email of the attendee?");
+                  let attendee = {
+                    productId: id,
+                    email: email,
+                    name: name
+                  };
+                  api.AddCustomProductToCart({
+                        "type": "custom_item",
+                        "name": "course_attendee",
+                        "sku": "attendee",
+                        "description": JSON.stringify(attendee),
+                        "quantity": 1,
+                        "price": {
+                          "amount": 0
+                        }
+                  });
+                }
+              })
               .catch((e) => {
                 console.log(e)
               })
