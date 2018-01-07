@@ -1,4 +1,4 @@
-/* 
+/*
 	Table of Contents
 
     01. Slick -------------------------------------
@@ -3411,8 +3411,9 @@ input:-webkit-autofill {
 .select-quantity {
   margin-top: -24px;
 }
-
-.select-quantity select {
+/* */
+.select-quantity select,
+.select-quantity .number-button {
   min-width: 82px;
   height: 41px;
   padding: 0 19px;

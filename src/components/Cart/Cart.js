@@ -23,6 +23,7 @@ class Cart extends Component {
       api.GetCartItems()
 
       .then((cart) => {
+        console.log('api.GetCartItems results in:', cart);
         dispatch({type: "Fetch_Cart_End", payload: cart})
       })
 
@@ -55,8 +56,8 @@ class Cart extends Component {
       })
     }
 
-    if(true || this.props.cart.fetched === true && this.props.cart.fetching === false && this.props.products.fetched === true) {
-      if(true || this.props.cart.cart.data[0]) {
+    if(this.props.cart.fetched === true && this.props.cart.fetching === false && this.props.products.fetched === true) {
+      if(this.props.cart.cart && this.props.cart.cart.data[0]) {
         var subtotal = '$1000';//'$' + this.props.cart.cart.meta.display_price.with_tax.amount/100;
         return (
           <div>
@@ -70,73 +71,9 @@ class Cart extends Component {
             					</header>
 
             					<div className="cart">
-            						<div className="cart__cols">
-            							<div className="cart__col cart__col--size-1">
-            								<div className="cart__col-inner">
-            									<div className="cart__item">
-            										<h4>Niveau - Matière</h4>
 
-            										<h3>Titre du STAGE sur 2 lignes maximum</h3>
+                                          <CartItems />
 
-            										<p><span>60</span> heures de cours</p>
-
-            										<p>
-            											<span>
-            												<i className="ico-calendar-red"></i>
-            											</span>
-
-            											du 17/05/2017 au 19/05/2017
-            										</p>
-
-            										<p>
-            											<span>
-            												<i className="ico-location-red"></i>
-            											</span>
-
-            											54 rue de Ponthieu, Paris 75008
-            										</p>
-            									</div>
-            								</div>
-            							</div>
-
-            							<div className="cart__col cart__col--size-3">
-            								<div className="cart__col-inner">
-            									<div className="cart__info">
-            										<h4 className="cart__title">Quantité</h4>
-
-            										<div className="select-quantity">
-            											<select name="quantity" id="quantity">
-            												<option value="">1</option>
-            												<option value="">2</option>
-            												<option value="">3</option>
-            											</select>
-            										</div>
-            									</div>
-            								</div>
-            							</div>
-
-            							<div className="cart__col cart__col--size-3">
-            								<div className="cart__col-inner">
-            									<div className="cart__info cart__info--alt">
-            										<h4 className="cart__title">TVA 20%</h4>
-
-            										<p>-</p>
-
-            										<span>Non applicable</span>
-            									</div>
-            								</div>
-            							</div>
-
-            							<div className="cart__col cart__col--size-2">
-            								<div className="cart__col-inner">
-            									<div className="cart__info">
-            										<h4 className="cart__title">Prix TTC</h4>
-
-            										<p className="price">1500 €</p>
-            									</div>
-            								</div>
-            							</div>
-            						</div>
 
             						<div className="cart__total">
             							<div className="totals">
@@ -152,7 +89,7 @@ class Cart extends Component {
             									<div className="total__inner">
             										<h4>Total TTC</h4>
 
-            										<p className="sum">1500 €</p>
+            										<p className="sum">{this.props.cart.cart.meta.display_price.with_tax.amount/100} €</p>
             									</div>
             								</div>
             							</div>

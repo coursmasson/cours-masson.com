@@ -66,7 +66,8 @@ class CartItems extends Component {
         })
       })
     }
-      
+
+    console.log('this.props is ', this.props);
     var items = this.props.cart.cart.data;
 
     var products = this.props.products.products;
@@ -74,53 +75,86 @@ class CartItems extends Component {
     return (
       <div>
         {items.map(function(item) {
+          console.log('item is ', item);
 
           var productArray = products.data.filter(function(product) {
               return product.id === item.product_id;
             });
 
           var product = productArray[0];
-          
+
           var background = product.background_colour;
-          
+
           var TotalPriceHidden = "hidden"
-          
+
           if(item.quantity > 1) {
             TotalPriceHidden = ""
           };
-          
+
           return (
+
+
             <div className="cart-item" key={item.id}>
+              <div className="cart__cols">
+                  <div className="cart__col cart__col--size-1">
+                      <div className="cart__col-inner">
+                          <div className="cart__item">
+                              <h4>Niveau - Matière</h4>
 
-                <div className="product-image" aria-hidden="true">
-                  <ProductImage alt="item.description" products={products} product={product} background={background}/>
-                </div>
-                <div className="cart-details">
+                              <h3>{item.name}</h3>
 
-                  <div className="cart-title">
-                    <h3>{item.name}</h3>
+                              <p><span>60</span> heures de cours</p>
+
+                              <p>
+                                  <span>
+              <i className="ico-calendar-red"></i>
+              </span> du 17/05/2017 au 19/05/2017
+                              </p>
+
+                              <p>
+                                  <span>
+              <i className="ico-location-red"></i>
+              </span> 54 rue de Ponthieu, Paris 75008
+                              </p>
+                          </div>
+                      </div>
                   </div>
 
-              <div className="cart-quantity">
-                <div className="quantity-input">
-                  <p className="hide-content">Product quantity.</p>
-                  <p className="hide-content">Change the quantity by using the buttons, or alter the input directly.</p>
-                  <button type="button" className="decrement number-button" onClick={() => {cart_decrement(item.id, item.quantity)}} ><span className="hide-content">Decrement quantity</span><span aria-hidden="true">-</span></button>
-                  <input className="quantity" name="number" type="number" min="1" max="10"  size="2" defaultValue={item.quantity} onBlur={(event) => {cart_edit(item.id, event.target.value);console.log(event.target.value)}}/>
-                  <button type="button" className="increment number-button" onClick={() => {cart_increment(item.id, item.quantity)}}><span className="hide-content">Increment quantity</span><span aria-hidden="true">+</span></button>
-                </div>
-              </div>
-              <div className="cart-price">
-                <p className="price"><span className={`item-price ${TotalPriceHidden}`}><span className="hide-content">Price per item </span>$<span className="product-price">{(item.unit_price.amount/100)}</span><span aria-hidden="true"> / </span></span><span className="hide-content">Product subtotal </span>$<span className="total-product-price">{((item.unit_price.amount/100)*item.quantity)}</span></p>
-              </div>
-              </div>
-              <div className="cart-delete">
-                <button className="remove" type="button" onClick={() => {cart_edit(item.id, 0);}}><span className="hide-content">Delete item</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.55635 15.55635">
-                    <rect fill="currentColor" x="-2.22183" y="6.77817" width="20" height="2" transform="translate(7.77817 -3.22183) rotate(45)"/>
-                    <rect fill="currentColor" x="-2.22183" y="6.77817" width="20" height="2" transform="translate(18.77817 7.77817) rotate(135)"/>
-                  </svg>
-                </button>
+                  <div className="cart__col cart__col--size-3">
+                      <div className="cart__col-inner">
+                          <div className="cart__info">
+                              <h4 className="cart__title">Quantité</h4>
+
+                              <div className="select-quantity">
+                                  <button type="button" className="increment number-button" onClick={() => {cart_increment(item.id, item.quantity)}}><span className="hide-content">-</span><span aria-hidden="true">+</span></button>
+                                  <input className="quantity" name="number" type="number" min="1" max="10"  size="2" defaultValue={item.quantity} onBlur={(event) => {cart_edit(item.id, event.target.value);console.log(event.target.value)}}/>
+                                  <button type="button" className="decrement number-button" onClick={() => {cart_decrement(item.id, item.quantity)}} ><span className="hide-content">+</span><span aria-hidden="true">-</span></button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div className="cart__col cart__col--size-3">
+                      <div className="cart__col-inner">
+                          <div className="cart__info cart__info--alt">
+                              <h4 className="cart__title">TVA 20%</h4>
+
+                              <p>-</p>
+
+                              <span>Non applicable</span>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div className="cart__col cart__col--size-2">
+                      <div className="cart__col-inner">
+                          <div className="cart__info">
+                              <h4 className="cart__title">Prix TTC</h4>
+
+                              <p className="price">{item.value.amount/100} €</p>
+                          </div>
+                      </div>
+                  </div>
               </div>
             </div>
           )

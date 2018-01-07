@@ -1,4 +1,4 @@
-/* 
+/*
 	Table of Contents
 
     01. Slick -------------------------------------
@@ -920,13 +920,13 @@ nav ol { list-style: none outside none; }
 /* Small Desktop */
 
 @media (max-width: 1279px) {
-	.footer .cols { width: 87%; margin: 0 0 40px 9%; }	
+	.footer .cols { width: 87%; margin: 0 0 40px 9%; }
 }
 
 /* Tablet Portrait */
 
 @media (max-width: 1023px) {
-	.footer .cols { width: 100%; margin: 0 20px 25px; }	
+	.footer .cols { width: 100%; margin: 0 20px 25px; }
 }
 
 /* Mobile */
@@ -1025,7 +1025,7 @@ nav ol { list-style: none outside none; }
 
 	.header--alt .nav-select ul { margin-right: 10px; }
 
-	.header--alt .nav-select a { min-width: 80px; height: 40px; line-height: 38px; padding: 0 5px; margin-top: 8px; font-size: 14px; } 
+	.header--alt .nav-select a { min-width: 80px; height: 40px; line-height: 38px; padding: 0 5px; margin-top: 8px; font-size: 14px; }
 
 	.header--alt .logo { margin-top: 11px; }
 
@@ -1052,7 +1052,7 @@ nav ol { list-style: none outside none; }
 @media (max-width: 1080px) {
 	.header { background: #fff; -webkit-box-shadow: 0 3px 7px rgba(0,0,0,.35); box-shadow: 0 3px 7px rgba(0,0,0,.35); }
 
-	.header .logo .white,	
+	.header .logo .white,
 	.header .logo .black { display: none; }
 	.header.not-transparent .logo .black { display: none; }
 
@@ -1342,7 +1342,7 @@ nav ol { list-style: none outside none; }
 @media (max-width: 1023px) {
 	.cart .cart__col--size-1 { width: 47%; }
 	.cart .cart__col--size-2 { width: 17.67%; }
-	.cart .cart__col--size-3 { width: 17.67%; } 
+	.cart .cart__col--size-3 { width: 17.67%; }
 
 	.cart .cart__item { padding: 20px 20px 16px 18px; }
 }
@@ -1360,7 +1360,7 @@ nav ol { list-style: none outside none; }
 
 	.cart .cart__col--size-1 { width: 100%; }
 	.cart .cart__col--size-2 { width: 35%; }
-	.cart .cart__col--size-3 { width: 32.5%; } 
+	.cart .cart__col--size-3 { width: 32.5%; }
 
 	.cart .cart__item { padding: 12px 5px 38px; text-align: center; }
 
@@ -1409,13 +1409,13 @@ nav ol { list-style: none outside none; }
 /* Tablet Portrait */
 
 @media (max-width: 1023px) {
-	.checklist { padding: 18px 20px 14px; }	
+	.checklist { padding: 18px 20px 14px; }
 }
 
 /* Mobile */
 
 @media (max-width: 767px) {
-	.checklist { padding: 8px 14px 14px; margin: 0 -16px 13px; }	
+	.checklist { padding: 8px 14px 14px; margin: 0 -16px 13px; }
 
 	.checklist h4 { margin-bottom: 7px; text-align: center; font-size: 12px; }
 }
@@ -1508,7 +1508,7 @@ nav ol { list-style: none outside none; }
 
 	.course .course__foot .course__date { margin-bottom: 0px; }
 
-	.course .course__date, 
+	.course .course__date,
 	.course .course__location { font-size: 12px; }
 
 	.course .course__location i { width: 11px; height: 18px; }
@@ -1854,7 +1854,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0
 /* XSmall Desktop */
 
 @media (max-width: 1080px) {
-	.logo { margin: 0 -9px 0 0; }	
+	.logo { margin: 0 -9px 0 0; }
 	.logo img { max-width: 42px; -webkit-transition: .3s ease; -o-transition: .3s ease; transition: .3s ease; }
 	.logo .logo-mobile { visibility: visible; opacity: 1; position: relative; }
 
@@ -1963,7 +1963,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0
 	.nav-secondary li { margin-bottom: 14px; }
 	.nav-secondary a { font-size: 16px; }
 
-	.nav-secondary.open, 
+	.nav-secondary.open,
 	.nav.open { visibility: visible; opacity: 1; position: relative; -webkit-transform: scaleY(1); -ms-transform: scaleY(1); transform: scaleY(1); }
 
 	.nav-secondary { visibility: hidden; opacity: 0; position: absolute; }
@@ -1972,7 +1972,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0
 
 	.nav-trigger.open { position: absolute; opacity: 0; }
 
-	.nav-trigger span { content: ''; position: relative; display: block; width: 26px; height: 2px; margin-bottom: 6px; background: #f05b5f; -webkit-transition: .3s ease; -o-transition: .3s ease; transition: .3s ease; } 
+	.nav-trigger span { content: ''; position: relative; display: block; width: 26px; height: 2px; margin-bottom: 6px; background: #f05b5f; -webkit-transition: .3s ease; -o-transition: .3s ease; transition: .3s ease; }
 
 	/*  Nav Trigger Open  */
 
@@ -2177,7 +2177,25 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0
 
 .select-quantity { margin-top: -24px; }
 
-.select-quantity select { min-width: 82px; height: 41px; padding: 0 19px; border: 0; border-radius: 4px; -webkit-box-shadow: 0 3px 7px rgba(0,0,0,.35); box-shadow: 0 3px 7px rgba(0,0,0,.35); text-align: right; direction: rtl; font-size: 16px; font-weight: 700; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: url(../images/src/assets/images/arrow-down-tall.png) no-repeat 27% 50%; }
+
+.select-quantity select,
+.select-quantity button {
+  min-width: 82px;
+  height: 41px;
+  padding: 0 19px;
+  border: 0;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, .35);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, .35);
+  text-align: right;
+  direction: rtl;
+  font-size: 16px;
+  font-weight: 700;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(../images/src/assets/images/arrow-down-tall.png) no-repeat 27% 50%;
+}
 
 .select-quantity select::-ms-expand { display: none; }
 
@@ -2188,7 +2206,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0
 @media (max-width: 767px) {
 	.select-quantity { margin-top: 0; }
 
-	.select-quantity select { min-width: 40px; height: 30px; padding: 0 7px; background-size: 14px 12px; font-size: 10px; } 
+	.select-quantity select { min-width: 40px; height: 30px; padding: 0 7px; background-size: 14px 12px; font-size: 10px; }
 }
 
 /* ------------------------------------------------------------ *\
@@ -2254,7 +2272,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0
 	.slider-testimonials .slider__slide-image img { width: 40px; height: 40px; margin: 15px 7px 0; }
 
 	.slider-testimonials .slick-center .slider__slide-image img { width: 65px; height: 65px; }
-	
+
 	.slider-people .slick-prev,
 	.slider-people .slick-next { width: 39px; height: 39px; }
 }
@@ -2330,7 +2348,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0
 /* Tablet Portrait */
 
 @media (max-width: 1023px) {
-	.tabs-testimonials .tab { max-width: 82%; } 
+	.tabs-testimonials .tab { max-width: 82%; }
 }
 
 /* Mobile */
