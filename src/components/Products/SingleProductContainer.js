@@ -26,7 +26,6 @@ class Product extends Component {
     // check if we already have a moltin products in the store
     if ((this.props.products.fetched === false) || (this.props.stages.fetched === false)) {
       // dispatch an action to our redux reducers
-      debugger
       this.props.dispatch(fetchProductsAndStages());
     }
   }

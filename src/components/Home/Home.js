@@ -42,7 +42,6 @@ class Home extends Component {
 
   render() {
     if (this.props.stages.stages !== null) {
-      debugger;
       return (
         <div>
           <HomeHeader />

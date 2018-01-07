@@ -21,10 +21,13 @@ class SingleProduct extends Component {
   // a react lifecycle event, read more at http://busypeoples.github.io/post/react-component-lifecycle/
  
   render() {
-    debugger;
     let product = this.props.product;
     let currentStage = this.props.currentStage;
-    debugger;
+
+    let price = product.price[0];
+    let amount = price.amount;
+    let currency = price.currency;
+
     if (product) {
       return (
         <div className="main">
@@ -68,22 +71,9 @@ class SingleProduct extends Component {
                   {/* /.checklist */}
                   <article className="article">
                     <h3>Description du stage</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
+                        <p>
+                          {product.description}
+                          </p>
                     <div className="article__actions">
                       <a href="#" className="btn">
                         Télécharger Doc 1
@@ -452,7 +442,7 @@ class SingleProduct extends Component {
                 <aside className="section__aside">
                   <div className="widget">
                     <div className="widget__head">
-                      <h3 className="widget__title">1500 €</h3>
+                      <h3 className="widget__title">{amount} {currency}</h3>
                       {/* /.widget__title */}
                     </div>
                     {/* /.widget__head */}
