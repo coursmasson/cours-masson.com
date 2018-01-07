@@ -471,7 +471,7 @@ class SingleProduct extends Component {
                           className="widget__btn widget__btn--info btn"
                         >
                           Ajouter Au Panier
-                        </a>
+                        </button>
                       </div>
                       {/* /.widget__actions */}
                       <div className="widget__content">
