@@ -49,7 +49,10 @@ class CartItems extends Component {
       })
     }
 
-    var cart_edit = (ID, quantity) => {
+
+
+
+    var cart_edit = (ID, quantity,callback) => {
 
       this.props.dispatch((dispatch) => {
         dispatch({type: "Fetch_Cart_Start"})
@@ -59,6 +62,7 @@ class CartItems extends Component {
         .then((cart) => {
           console.log("cart quantity updated")
         dispatch({type: "Fetch_Cart_End", payload: cart})
+        if(callback) callback()
         })
 
         .catch((e) => {
@@ -74,12 +78,27 @@ class CartItems extends Component {
     items.forEach((item)=> {
       if(item.type === 'custom_item') {
         attendeesItems.push(item);
+        coursesItems.push(item);
       } else {
         coursesItems.push(item);
       }
     })
 
     var products = this.props.products.products;
+
+    var cart_delete = (ID) =>{
+      console.log('Called function cart_delete')
+      cart_edit(ID,0,(()=>{
+        attendeesItems.forEach((attendeesItem)=> {
+            let attendeeInfo = JSON.parse(attendeesItem.description);
+            console.log('attendeeInfo is ', attendeeInfo);
+            if(attendeeInfo.productId === ID) {
+              console.log('Called ')
+              cart_edit(attendeesItem.id,0)
+            }
+          })
+      }))
+    }
 
     return (
       <div>
@@ -91,6 +110,8 @@ class CartItems extends Component {
             });
 
           var product = productArray[0];
+
+
 
           var background = product ? product.background_colour : '';
 
@@ -110,6 +131,8 @@ class CartItems extends Component {
               attendeeEmail = attendeeInfo.email;
             }
           })
+
+
 
           return (
 
@@ -146,9 +169,8 @@ class CartItems extends Component {
                               <h4 className="cart__title">Quantité</h4>
 
                               <div className="select-quantity">
-                                  <button type="button" className="increment number-button" onClick={() => {cart_increment(item.id, item.quantity)}}><span className="hide-content">-</span><span aria-hidden="true">+</span></button>
-                                  <input className="quantity" name="number" type="number" min="1" max="10"  size="2" defaultValue={item.quantity} onBlur={(event) => {cart_edit(item.id, event.target.value);console.log(event.target.value)}}/>
-                                  <button type="button" className="decrement number-button" onClick={() => {cart_decrement(item.id, item.quantity)}} ><span className="hide-content">+</span><span aria-hidden="true">-</span></button>
+                                  <button type="button" className="delete number-button" onClick={() => {cart_delete(item.id)}}><span className="hide-content">-</span><span aria-hidden="true">+</span></button>
+                                  
                               </div>
                           </div>
                       </div>
