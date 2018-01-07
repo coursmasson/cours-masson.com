@@ -5,6 +5,7 @@ import AllProducts from "../Products/AllProducts";
 import CategoriesContainer from "../Categories/CategoriesContainer";
 import MailingList from "../global/MailingList";
 import * as api from "../../utils/moltin";
+import * as moment from 'moment'
 
 
 
@@ -18,6 +19,17 @@ class SingleProduct extends Component {
     document.body.appendChild(script);
   }
 
+  renderDate = () => {
+    debugger;
+    let stage = this.props.currentStage; 
+    return  (stage.period.sessionType === 'continue' ?
+        <span>Du {stage.period.continueDates ? moment(stage.period.continueDates[0]).format('DD/MM/YYYY') : '-'} au {stage.period.continueDates ? moment(stage.period.continueDates[stage.period.continueDates.length - 1]).format('DD/MM/YYYY') : '-'}
+        </span>
+        :
+        <span>Du {stage.period.startDate ? moment(stage.period.startDate).format('DD/MM/YYYY') : '-'} au {stage.period.endDate ? moment(stage.period.endDate).format('DD/MM/YYYY') : '-'}
+        </span>)
+    
+  }
   // a react lifecycle event, read more at http://busypeoples.github.io/post/react-component-lifecycle/
  
   render() {
@@ -87,8 +99,11 @@ class SingleProduct extends Component {
                   {/* /.article */}
                   <article className="article">
                     <header className="article__head">
+
                       <h3>Date de ce stage</h3>
-                      <p>Du 20/10/2017 au 25/10/2017</p>
+                      {
+                          this.renderDate()
+                          }
                     </header>
                     {/* /.article__head */}
                     <div className="calendars">
@@ -465,14 +480,14 @@ class SingleProduct extends Component {
                           <span>
                             <i className="ico-calendar-red" />
                           </span>
-                          Du 15/10:2017 au 20/10/2017
+                          { this.renderDate()}
                         </p>
                         <h4>Adresse du stage</h4>
                         <p>
                           <span>
                             <i className="ico-location-red" />
                           </span>
-                          21 avenue charles de gaule, 75008
+                          {currentStage.period.address}
                         </p>
                         <h4>Durée du stage</h4>
                         <p>60 heures de cours</p>
