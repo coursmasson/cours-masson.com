@@ -31,7 +31,9 @@ class SingleProduct extends Component {
     
   }
   // a react lifecycle event, read more at http://busypeoples.github.io/post/react-component-lifecycle/
- 
+  addToCart (id) => {
+    
+  }
   render() {
     let product = this.props.product;
     let currentStage = this.props.currentStage;
@@ -466,8 +468,8 @@ class SingleProduct extends Component {
                         <a href="#" className="widget__btn btn-danger">
                           S’inscrire À Ce Stage
                         </a>
-                        <a
-                          href="#"
+                        <button
+                          onClick={() => this.props.addToCart()}
                           className="widget__btn widget__btn--info btn"
                         >
                           Ajouter Au Panier

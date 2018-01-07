@@ -66,4 +66,8 @@ export const fetchProductsAndStages = () => {
       });
   };
 };
+
+const fetchCart = () => {
+  
+}
 export default IncrementCart;

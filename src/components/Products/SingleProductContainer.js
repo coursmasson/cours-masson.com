@@ -74,6 +74,8 @@ class Product extends Component {
                     payload: cart,
                     gotNew: true
                   });
+
+                  
                 });
             })
             .catch(e => {
@@ -90,7 +92,7 @@ class Product extends Component {
           <div className="main">
             <div className="section-courses">
               <div className="shell">
-                <SingleProduct currentStage={currentStage} product={product} />
+                <SingleProduct currentStage={currentStage} product={product} addToCart={this.addToCart}/>
               </div>
             </div>
           </div>
