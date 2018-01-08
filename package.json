@@ -11,6 +11,7 @@
     "lodash": "4.17.4",
     "moltin": "2.2.0",
     "moment": "^2.20.1",
+    "purecss": "^1.0.0",
     "react": "^16.2.0",
     "react-dates": "^16.0.1",
     "react-dom": "^16.2.0",

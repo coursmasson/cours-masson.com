@@ -5,6 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 import api from '../../utils/moltin';
 import { push } from 'react-router-redux';
 import { connect } from 'react-redux';
+import 'purecss'
 
 function mapStateToProps(state) {
   return {push: state.push}
@@ -106,9 +107,9 @@ class CheckoutForm extends Component {
     return (
       <main role="main" id="container" className="main-container push">
       <section className="checkout">
-          <div className="content">
+          <div className="content" style={{margin: '0 auto', width: '80%'}}>
               <CheckoutSummary />
-              <form className="checkout-form"  noValidate onSubmit={this.props.handleSubmit(this.mySubmit)} onKeyDown={(e) => { this.handleKeyDown(e); }}>
+              <form className="pure-form pure-form-stacked"  noValidate onSubmit={this.props.handleSubmit(this.mySubmit)} onKeyDown={(e) => { this.handleKeyDown(e); }}>
                   <fieldset className="details">
                       <div className="form-header">
                           <h2>Your details</h2>
@@ -478,14 +479,8 @@ class CheckoutForm extends Component {
                                   <Field component="input" required="required" placeholder="CVC" maxLength="4" name="card_cvc" type="tel" aria-label="CVC"/>
                               </label>
                           </div>
-                          <button type="submit" className="pay" aria-live="polite">
-                            <div className="loading-icon">
-                                <span className="hide-content">Processing</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52.7 46.9" aria-hidden="true">
-                                    <path fill="currentColor" d="M47.8,15.9c0,2.8-1,5.6-3.2,7.6L26.4,41.7L8.1,23.5c-4.3-4.3-4.3-11.1,0-15.4c2.1-2.1,4.9-3.2,7.7-3.2c2.8,0,5.6,1,7.6,3.2
-                            l2.9,2.9l2.9-2.9c4.3-4.3,11.1-4.3,15.4,0C46.7,10.3,47.8,13.1,47.8,15.9z"/>
-                                </svg>
-                            </div>
+                          <button type="submit" className="pay pure-button pure-button-primary" aria-live="polite">
+                            
                             <span className="copy">Pay</span>
                         </button>
                       </div>

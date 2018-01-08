@@ -29,7 +29,6 @@ class CheckoutContainer extends Component {
           <MobileNav />
           <CartHeader />
           <CheckoutForm />
-          <Footer/>
         </div>
       )
     }
@@ -40,7 +39,6 @@ class CheckoutContainer extends Component {
           <MobileNav />
           <CartHeader />
           <Loading />
-          <Footer/>
         </div>
       )
     }
