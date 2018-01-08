@@ -19,7 +19,7 @@ class Cart extends Component {
 
     this.props.dispatch(fetchCart())
 
-    if (this.props.products.fetched === false) {
+    if (this.props.products.fetched === false && this.props.stages.fetched === false) {
       this.props.dispatch(fetchProductsAndStages())
     }
   }
@@ -40,11 +40,13 @@ class Cart extends Component {
     if (
       this.props.cart.fetched === true &&
       this.props.cart.fetching === false &&
-      this.props.products.fetched === true
+      this.props.products.fetched === true &&
+      this.props.stages.fetched === true
     ) {
       if (this.props.cart.cart.data[0]) {
+        const price = this.props.cart.cart.meta.display_price.with_tax.formatted;
         var subtotal =
-          "$" + this.props.cart.cart.meta.display_price.with_tax.amount / 100;
+          "€" + this.props.cart.cart.meta.display_price.with_tax.formatted;
         return (
           <div>
             <CartHeader />
@@ -64,25 +66,7 @@ class Cart extends Component {
                     <div className="cart__cols">
                       <div className="cart__col cart__col--size-1">
                         <div className="cart__col-inner">
-                          <div className="cart__item">
-                            <h4>Niveau - Matière</h4>
-                            <h3>Titre du STAGE sur 2 lignes maximum</h3>
-                            <p>
-                              <span>60</span> heures de cours
-                            </p>
-                            <p>
-                              <span>
-                                <i className="ico-calendar-red" />
-                              </span>
-                              du 17/05/2017 au 19/05/2017
-                            </p>
-                            <p>
-                              <span>
-                                <i className="ico-location-red" />
-                              </span>
-                              54 rue de Ponthieu, Paris 75008
-                            </p>
-                          </div>
+                          <CartItems/>
                           {/* /.cart__item */}
                         </div>
                         {/* /.cart__col-inner */}
@@ -125,7 +109,7 @@ class Cart extends Component {
                           <div className="cart__info">
                             <h4 className="cart__title">Prix TTC</h4>
                             {/* /.cart__title */}
-                            <p className="price">1500 €</p>
+                            <p className="price">{price} €</p>
                           </div>
                           {/* /.cart__info */}
                         </div>
@@ -146,7 +130,7 @@ class Cart extends Component {
                         <div className="total">
                           <div className="total__inner">
                             <h4>Total TTC</h4>
-                            <p className="sum">1500 €</p>
+                            <p className="sum">{subtotal}</p>
                           </div>
                           {/* /.total__inner */}
                         </div>

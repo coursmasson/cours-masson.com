@@ -84,11 +84,8 @@ export const fetchCart = () => {
     dispatch(fetchCartStart())
       api
         .GetCartItems()
-
         .then(cart => {
-          debugger;
           dispatch(fetchCartEnd(cart))
-
         })
   }
   
