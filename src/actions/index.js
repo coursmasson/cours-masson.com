@@ -86,7 +86,8 @@ export const fetchCart = () => {
         .GetCartItems()
 
         .then(cart => {
-          fetchCartEnd(cart)
+          debugger;
+          dispatch(fetchCartEnd(cart))
 
         })
   }

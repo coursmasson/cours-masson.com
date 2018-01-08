@@ -53,7 +53,6 @@ class Product extends Component {
                     gotNew: true
                   });
 
-                  
                 });
             })
             .catch(e => {

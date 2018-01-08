@@ -19,7 +19,7 @@ class Cart extends Component {
 
     this.props.dispatch(fetchCart())
 
-    if (this.props.products.fetched === false && this.props.products.fetching === false) {
+    if (this.props.products.fetched === false) {
       this.props.dispatch(fetchProductsAndStages())
     }
   }
