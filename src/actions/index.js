@@ -23,6 +23,9 @@ export const FETCH_PRODUCTS_END = "Fetch_Products_End";
 export const FETCH_STAGES_START = "Fetch_Stages_Start";
 export const FETCH_STAGES_END = "Fetch_Stages_End";
 
+export const FETCH_CART_START = "Fetch_Products_Start"
+export const FETCH_CART_END = "Fetch_Cart_End"
+
 const fetchStagesStart = () => ({
   type: FETCH_STAGES_START
 });
@@ -39,6 +42,7 @@ const fetchProductsEnd = payload => ({
   type: FETCH_PRODUCTS_END,
   payload: payload
 });
+
 
 // fetch both Products and stages
 export const fetchProductsAndStages = () => {
@@ -67,7 +71,25 @@ export const fetchProductsAndStages = () => {
   };
 };
 
-const fetchCart = () => {
+
+const fetchCartStart = () => ({type: FETCH_CART_START })
+const fetchCartEnd = (payload) => ({
+  type: FETCH_CART_END,
+  payload: payload
+})
+export const fetchCart = () => {
+
+  return (dispatch) => {
+
+    dispatch(fetchCartStart())
+      api
+        .GetCartItems()
+
+        .then(cart => {
+          fetchCartEnd(cart)
+
+        })
+  }
   
 }
 export default IncrementCart;

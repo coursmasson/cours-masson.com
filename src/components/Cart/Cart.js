@@ -7,6 +7,7 @@ import CartItems from "./CartItems";
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
 import { CartIntro } from "./CartIntro";
+import { fetchCart, fetchProductsAndStages } from "../../actions/index";
 var api = require("../../utils/moltin.js");
 
 function mapStateToProps(state) {
@@ -15,29 +16,12 @@ function mapStateToProps(state) {
 
 class Cart extends Component {
   componentDidMount() {
-    this.props.dispatch(dispatch => {
-      dispatch({ type: "Fetch_Cart_Start" });
 
-      api
-        .GetCartItems()
+    this.props.dispatch(fetchCart())
 
-        .then(cart => {
-          dispatch({ type: "Fetch_Cart_End", payload: cart });
-        });
-
-      // this action will set a fetching field to true
-      dispatch({ type: "Fetch_Products_Start" });
-
-      // get the moltin products from the API
-      api
-        .GetProducts()
-
-        .then(products => {
-          /* now that we have the products, this action will set fetching to false and fetched to true,
-        as well as add the moltin products to the store */
-          dispatch({ type: "Fetch_Products_End", payload: products });
-        });
-    });
+    if (this.props.products.fetched === false && this.props.products.fetching === false) {
+      this.props.dispatch(fetchProductsAndStages())
+    }
   }
 
   render() {

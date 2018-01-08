@@ -39,7 +39,7 @@ class SingleProduct extends Component {
     let price = product.price[0];
     let amount = price.amount;
     let currency = price.currency;
-
+    console.log(this.props.addToCart)
     if (product) {
       return (
         <div className="main">

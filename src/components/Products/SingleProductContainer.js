@@ -30,29 +30,7 @@ class Product extends Component {
     }
   }
 
-  render() {
-    if (this.props.products.products && this.props.stages.stages ) {
-      var products = this.props.products.products;
-
-      var ID = window.location.pathname.slice(9, 100);
-  
-      var productArray = this.props.products.products.data
-        .filter(product => product.id === ID);
-  
-      console.log("productArray is ", productArray);
-      var product = productArray[0];
-      product.quantity = 0;
-      let currentStage = this.props.stages.stages.list[product.slug]
-  
-      console.log({currentStage: currentStage})
-  
-      var updateQuantity = quantity => {
-        this.props.dispatch(dispatch => {
-          dispatch({ type: "Update_Quantity", payload: quantity });
-        });
-      };
-  
-      var addToCart = id => {
+   addToCart = id => {
         this.props.dispatch(dispatch => {
           api
             .AddCart(id, this.props.product.quantity)
@@ -83,6 +61,28 @@ class Product extends Component {
             });
         });
       };
+  render() {
+    if (this.props.products.products && this.props.stages.stages ) {
+      var products = this.props.products.products;
+
+      var ID = window.location.pathname.slice(9, 100);
+  
+      var productArray = this.props.products.products.data
+        .filter(product => product.id === ID);
+  
+      console.log("productArray is ", productArray);
+      var product = productArray[0];
+      product.quantity = 0;
+      let currentStage = this.props.stages.stages.list[product.slug]
+  
+      console.log({currentStage: currentStage})
+  
+      var updateQuantity = quantity => {
+        this.props.dispatch(dispatch => {
+          dispatch({ type: "Update_Quantity", payload: quantity });
+        });
+      };
+  
   
       var background = product.background_colour;
       return (
