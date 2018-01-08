@@ -20,7 +20,6 @@ class SingleProduct extends Component {
   }
 
   renderDate = () => {
-    debugger;
     let stage = this.props.currentStage; 
     return  (stage.period.sessionType === 'continue' ?
         <span>Du {stage.period.continueDates ? moment(stage.period.continueDates[0]).format('DD/MM/YYYY') : '-'} au {stage.period.continueDates ? moment(stage.period.continueDates[stage.period.continueDates.length - 1]).format('DD/MM/YYYY') : '-'}

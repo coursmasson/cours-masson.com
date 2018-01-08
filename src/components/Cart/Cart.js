@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import MobileNav from "../global/Mobile/MobileNav";
 import MailingList from "../global/MailingList";
 import Footer from "../global/Footer";
 import CartHeader from "./CartHeader";
@@ -8,7 +7,6 @@ import { connect } from "react-redux";
 import { push } from "react-router-redux";
 import { CartIntro } from "./CartIntro";
 import { fetchCart, fetchProductsAndStages } from "../../actions/index";
-var api = require("../../utils/moltin.js");
 
 function mapStateToProps(state) {
   return state;
@@ -23,21 +21,21 @@ class Cart extends Component {
       this.props.dispatch(fetchProductsAndStages())
     }
   }
-
-  render() {
-    var toProducts = () => {
+   toCheckout = () => {
+      this.props.dispatch(dispatch => {
+        dispatch(push("/checkout"));
+      });
+    };
+    toProducts = () => {
       this.props.dispatch(dispatch => {
         dispatch(push("/products"));
       });
     };
 
-    var toCheckout = () => {
-      this.props.dispatch(dispatch => {
-        dispatch(push("/checkout"));
-      });
-    };
 
-    if (
+
+  render() {
+        if (
       this.props.cart.fetched === true &&
       this.props.cart.fetching === false &&
       this.props.products.fetched === true &&
@@ -57,7 +55,7 @@ class Cart extends Component {
                   <header className="section__head">
                     <p>
                       Besoin d’aide pour passer commande ?{" "}
-                      <a href="#">Contactez-nous</a> ou appelez-nous Au{" "}
+                      <a>Contactez-nous</a> ou appelez-nous Au{" "}
                       <a href="tel:0143435456">01 43 43 54 56</a>
                     </p>
                   </header>
@@ -138,13 +136,13 @@ class Cart extends Component {
                     </div>
                     {/* /.cart__total */}
                     <div className="cart__actions">
-                      <a href="#" className="btn-info">
+                      <a  className="btn-info">
                         <span>Code pormo</span>
                       </a>
-                      <a href="#" className="btn-info">
+                      <a  className="btn-info">
                         <span>Coordonnée de facturation</span>
                       </a>
-                      <a href="#" className="btn-danger">
+                      <a role="button" onClick={this.toCheckout}className="btn-danger">
                         Valider
                       </a>
                     </div>
@@ -216,7 +214,7 @@ class Cart extends Component {
                     <a
                       className="btn"
                       href="products"
-                      onClick={() => toProducts()}
+                      onClick={() => this.toProducts()}
                     >
                       Start shopping
                     </a>

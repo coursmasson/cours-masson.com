@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import SingleProduct from "./SingleProduct";
-import Footer from "../global/Footer";
-import CartHeader from "../Cart/CartHeader";
 import ProductHeader from "./ProductHeader";
 import { connect } from "react-redux";
 import Loading from "../global/Loading";
-import MobileNav from "../global/Mobile/MobileNav";
 
 import { SingleProductIntro } from './SingleProductIntro'
 import HomeHeader from "../Home/HomeHeader";
