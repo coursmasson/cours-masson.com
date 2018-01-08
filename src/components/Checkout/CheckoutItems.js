@@ -29,7 +29,7 @@ class CheckoutItems extends Component {
         return (
           <div className="checkout-product" key={item.id}>
                   <div className="product-image" aria-hidden="true">
-                    <ProductImage products={products} product={product} background={background}/>
+                   {/* <ProductImage products={products} product={product} background={background}/> */}
                   </div>
                   <div className="product-info">
                       <div className="product-title">{item.name + ' X ' + item.quantity}</div>
