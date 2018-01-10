@@ -31,6 +31,14 @@ class Cart extends Component {
       });
     };
 
+
+      var toHome = () => {
+        this.props.dispatch(dispatch => {
+          dispatch(push("/"));
+        });
+      };
+
+
     var toCheckout = () => {
       this.props.dispatch(dispatch => {
         dispatch(push("/checkout"));
@@ -63,60 +71,8 @@ class Cart extends Component {
                   </header>
                   {/* /.section__head */}
                   <div className="cart">
-                    <div className="cart__cols">
-                      <div className="cart__col cart__col--size-1">
-                        <div className="cart__col-inner">
                           <CartItems/>
-                          {/* /.cart__item */}
-                        </div>
-                        {/* /.cart__col-inner */}
-                      </div>
                       {/* /.cart__col */}
-                      <div className="cart__col cart__col--size-3">
-                        <div className="cart__col-inner">
-                          <div className="cart__info">
-                            <h4 className="cart__title">Quantité</h4>
-                            {/* /.cart__title */}
-                            <div className="select-quantity">
-                              <select name="quantity" id="quantity">
-                                <option value>1</option>
-                                <option value>2</option>
-                                <option value>3</option>
-                              </select>
-                            </div>
-                            {/* /.select */}
-                          </div>
-                          {/* /.cart__info */}
-                        </div>
-                        {/* /.cart__col-inner */}
-                      </div>
-                      {/* /.cart__col */}
-                      <div className="cart__col cart__col--size-3">
-                        <div className="cart__col-inner">
-                          <div className="cart__info cart__info--alt">
-                            <h4 className="cart__title">TVA 20%</h4>
-                            {/* /.cart__title */}
-                            <p>-</p>
-                            <span>Non applicable</span>
-                          </div>
-                          {/* /.cart__info */}
-                        </div>
-                        {/* /.cart__col-inner */}
-                      </div>
-                      {/* /.cart__col */}
-                      <div className="cart__col cart__col--size-2">
-                        <div className="cart__col-inner">
-                          <div className="cart__info">
-                            <h4 className="cart__title">Prix TTC</h4>
-                            {/* /.cart__title */}
-                            <p className="price">{price} €</p>
-                          </div>
-                          {/* /.cart__info */}
-                        </div>
-                        {/* /.cart__col-inner */}
-                      </div>
-                      {/* /.cart__col */}
-                    </div>
                     {/* /.cart__cols */}
                     <div className="cart__total">
                       <div className="totals">
@@ -139,7 +95,7 @@ class Cart extends Component {
                     {/* /.cart__total */}
                     <div className="cart__actions">
                       <a href="#" className="btn-info">
-                        <span>Code pormo</span>
+                        <span>Code promo</span>
                       </a>
                       <a href="#" className="btn-info">
                         <span>Coordonnée de facturation</span>
@@ -209,17 +165,8 @@ class Cart extends Component {
               <section className="cart">
                 <div className="content">
                   <div className="cart-listing empty">
-                    <p>
-                      Oh no, looks like you don't love lamp, as your cart is
-                      empty.
+                    <p>Votre panier est vide
                     </p>
-                    <a
-                      className="btn"
-                      href="products"
-                      onClick={() => toProducts()}
-                    >
-                      Start shopping
-                    </a>
                   </div>
                 </div>
               </section>
