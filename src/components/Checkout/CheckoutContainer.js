@@ -5,6 +5,7 @@ import MobileNav from '../global/Mobile/MobileNav';
 import Footer from '../global/Footer';
 import Loading from '../global/Loading';
 import { connect } from 'react-redux';
+import ProductHeader from "../Products/ProductHeader";
 
 function mapStateToProps(state) {
   return state
@@ -26,10 +27,14 @@ class CheckoutContainer extends Component {
     if(this.props.payments.processing === false) {
       return (
         <div>
-          <MobileNav />
-          <CartHeader />
-          <CheckoutForm />
-          <Footer/>
+          <ProductHeader  />
+          <div className="main">
+            <div className="section-courses">
+              <div className="shell">
+              <CheckoutForm />
+              </div>
+            </div>
+          </div>
         </div>
       )
     }

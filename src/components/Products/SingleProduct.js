@@ -103,7 +103,7 @@ constructor (props) {
                        "description": JSON.stringify(attendee),
                        "quantity": 1,
                        "price": {
-                       "amount": product.price[0].amount / 100
+                       "amount": product.price[0].amount
                        }
                      }).then(()=> {
                          window.location.href = "/cart";

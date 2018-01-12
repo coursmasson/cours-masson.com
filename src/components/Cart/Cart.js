@@ -115,7 +115,7 @@ class Cart extends Component {
                       <a href="#" className="btn-info">
                         <span>Coordonnée de facturation</span>
                       </a>
-                      <a href="#" className="btn-danger">
+                      <a href="/checkout" className="btn-danger">
                         Valider
                       </a>
                     </div>
