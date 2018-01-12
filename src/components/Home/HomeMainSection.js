@@ -50,6 +50,7 @@ class HomeMainSection extends Component {
   render() {
     return (
       <div className="main">
+
         <div className="section-courses">
           <div className="shell">
             <div className="select-sort">

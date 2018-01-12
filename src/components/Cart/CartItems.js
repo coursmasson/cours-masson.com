@@ -138,10 +138,11 @@ let id = ID;
           var TotalPriceHidden = "hidden"
 
 
-
               return (
                 <div>
                   {coursesItems.map(function(cartItem) {
+
+                    console.log('cartItem', cartItem);
                               var productArray = products.data.filter(function(product) {
                                   return product.id === cartItem.product_id;
                                 });
@@ -182,8 +183,8 @@ let id = ID;
                               <h3>{cartItem.name}</h3>
 
                               <p><span>60</span> heures de cours</p>
-                              Attendees:
-                              <ul>
+                              Élève(s):
+                              <ul style={{marginLeft:'20px'}}>
                               {attendees.map(function (attendee) {
                                 return(
                                   <li>{attendee.name} ({attendee.email})</li>
@@ -235,7 +236,7 @@ let id = ID;
                           <div className="cart__info">
                               <h4 className="cart__title">Prix TTC</h4>
 
-                              <p className="price">{cartItem.value.amount/100} €</p>
+                              <p className="price">{cartItem.unit_price.amount/100} €</p>
                           </div>
                       </div>
                   </div>

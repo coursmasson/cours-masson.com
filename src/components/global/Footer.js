@@ -8,7 +8,7 @@ class Footer extends Component {
           <div className="footer-content">
             <div className="footer-about">
                 <div className="footer-header">
-                    <span className="hide-content">I love lamp</span>
+                    <span className="hide-content">Cours Masson</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.25684 46.73779" aria-hidden="true">
                         <path d="M0,42.478V.65967H4.67969V42.478Z" fill="currentColor"/>
                         <path d="M38.51953,42.478V.65967h9.24023V34.07813H64.0791V42.478Z" fill="currentColor"/>

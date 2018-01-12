@@ -53,8 +53,23 @@ class Cart extends Component {
     ) {
       if (this.props.cart.cart.data[0]) {
         const price = this.props.cart.cart.meta.display_price.with_tax.formatted;
+        let totalPrice = 0;
+        let allCartItems = this.props.cart.cart.data;
+        allCartItems.forEach((cartItem)=> {
+          if(cartItem.type === 'cart_item') {
+            allCartItems.forEach((customItem)=> { // look for matching custom items, which are students/course relationship
+              if(customItem.type === 'custom_item') {
+                console.log('found custom_item');
+                if(JSON.parse(customItem.description).productId === cartItem.product_id) {// found student matching course
+                  console.log('found student matching course!');
+                  totalPrice += cartItem.unit_price.amount / 100;
+                }
+              }
+            })
+          }
+        })
         var subtotal =
-          "€" + this.props.cart.cart.meta.display_price.with_tax.formatted;
+          totalPrice + "€" ;
         return (
           <div>
             <CartHeader />
@@ -182,19 +197,7 @@ class Cart extends Component {
             <section>
               <div className="content">
                 <div className="loading">
-                  <div className="loading-icon" aria-hidden="true">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 106 54"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="M77.6,18.3c0,3.2-1.2,6.4-3.7,8.8l-21,21l-21-21c-4.9-4.9-4.9-12.8,0-17.7c2.4-2.4,5.6-3.7,8.9-3.7
-              c3.2,0,6.4,1.2,8.8,3.7l3.3,3.3l3.3-3.3c4.9-4.9,12.8-4.9,17.7,0C76.3,11.9,77.6,15.1,77.6,18.3z"
-                      />
-                    </svg>
-                  </div>
-                  <p className="loading-text">Loading</p>
+                  <p className="loading-text">Chargement</p>
                 </div>
               </div>
             </section>

@@ -2051,7 +2051,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0
 
 .section-courses .select-sort { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; margin-bottom: 34px; }
 
-.section-courses .select-sort select { min-width: 100px; height: 40px; line-height: 36px; padding: 0 0 2px 12px; border: 2px solid #e6e6e6; margin-left: 31px; background: url(../images/src/assets/images/arrow-down-red.png) #fff no-repeat 79% 50%; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-size: 16px; color: #333; font-weight: 400; }
+.section-courses .select-sort select, .intro__actions select {animation:0sec; min-width: 100px; height: 40px; line-height: 36px; padding: 0 0 2px 12px; border: 2px solid #e6e6e6; margin-left: 31px; background: url(../images/src/assets/images/arrow-down-red.png) #fff no-repeat 79% 50%; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-size: 16px; color: #333; font-weight: 400; }
 
 .section-courses .select-sort label { line-height: 38px; font-size: 16px; color: #666; }
 
@@ -2177,25 +2177,7 @@ input:-webkit-autofill { -webkit-text-fill-color: inherit; -webkit-box-shadow: 0
 
 .select-quantity { margin-top: -24px; }
 
-
-.select-quantity select,
-.select-quantity button {
-  min-width: 82px;
-  height: 41px;
-  padding: 0 19px;
-  border: 0;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, .35);
-  box-shadow: 0 3px 7px rgba(0, 0, 0, .35);
-  text-align: right;
-  direction: rtl;
-  font-size: 16px;
-  font-weight: 700;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: url(../images/src/assets/images/arrow-down-tall.png) no-repeat 27% 50%;
-}
+.select-quantity select { min-width: 82px; height: 41px; padding: 0 19px; border: 0; border-radius: 4px; -webkit-box-shadow: 0 3px 7px rgba(0,0,0,.35); box-shadow: 0 3px 7px rgba(0,0,0,.35); text-align: right; direction: rtl; font-size: 16px; font-weight: 700; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: url(../images/src/assets/images/arrow-down-tall.png) no-repeat 27% 50%; }
 
 .select-quantity select::-ms-expand { display: none; }
 

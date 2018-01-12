@@ -27,6 +27,21 @@ const datesList = [
 const checkDate = (dates)=> (day1) => dates.some(day2 => moment(day1).isSame(day2, 'day'))
 class SingleProduct extends Component {
 
+constructor (props) {
+  super(props)
+  this.renderDate = this.renderDate.bind(this);
+}
+
+ renderDate () {
+
+  let stage = this.props.currentStage;
+  return  (stage.period.sessionType === 'continue' ?
+      <span>Du {stage.period.continueDates ? moment(stage.period.continueDates[0]).format('DD/MM/YYYY') : '-'} au {stage.period.continueDates ? moment(stage.period.continueDates[stage.period.continueDates.length - 1]).format('DD/MM/YYYY') : '-'}
+      </span>
+      :
+      <span>Du {stage.period.startDate ? moment(stage.period.startDate).format('DD/MM/YYYY') : '-'} au {stage.period.endDate ? moment(stage.period.endDate).format('DD/MM/YYYY') : '-'}
+      </span>)
+}
 
 
   render() {
@@ -67,19 +82,20 @@ class SingleProduct extends Component {
                     //dispatch({type: "Cart_Updated", gotNew: false})
                     })
               .then(()=> {
-                    if(window['confirm']("Est-ce pour vous-même?")) { // "is the course for yourself?"
+                    if(false) { // "is the course for yourself?"
                       this.props.dispatch((dispatch) => {
                         dispatch(push('/cart'));
                         window.location.href = "/cart";
                       })
                     } else {
-                      let name = prompt("What's the name of the attendee?");
-                      let email = prompt("What's the email of the attendee?");
+                      let name = prompt("Quel est le prénom de l'élève?");
+                      let email = prompt("Quel est l'e-mail de l'élève?");
                       let attendee = {
                       productId: id,
                       email: email,
                       name: name
                     };
+                    console.log('product is ', product);
                     api.AddCustomProductToCart({
                        "type": "custom_item",
                        "name": "course_attendee",
@@ -87,7 +103,7 @@ class SingleProduct extends Component {
                        "description": JSON.stringify(attendee),
                        "quantity": 1,
                        "price": {
-                       "amount": 0
+                       "amount": product.price[0].amount / 100
                        }
                      }).then(()=> {
                          window.location.href = "/cart";
@@ -95,8 +111,9 @@ class SingleProduct extends Component {
                     }
               })
               .catch((e) => {
-                     console.log(e)
-                     })
+                  alert('Le stage est complet');
+                   });
+                   return false;
 
         }
 
@@ -116,6 +133,7 @@ class SingleProduct extends Component {
               <div className="shell-secondary">
                 <div className="section__inner">
                   <div className="section__content">
+                  {/*}
                     <div className="checklist">
                       <h4>Que vais-je apprendre ?</h4>
                       <ul className="list-checks">
@@ -144,11 +162,11 @@ class SingleProduct extends Component {
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         </li>
                       </ul>
-                      {/* /.list-checks */}
                       <a href="#" className="hidden-xs">
                         Voir la description
                       </a>
                     </div>
+                    {*/}
                     {/* /.checklist */}
                     <article className="article">
                       <h3>Description du stage</h3>
@@ -171,7 +189,7 @@ class SingleProduct extends Component {
 
                         <h3>Date de ce stage</h3>
                         {
-                            //this.renderDate()
+                            this.renderDate()
                             }
                       </header>
                       {/* /.article__head */}
@@ -179,7 +197,7 @@ class SingleProduct extends Component {
                         <DateRangePickerWrapper
                       isDayHighlighted={checkDate(currentStage.period.sessionType === 'continue' ? currentStage.period.continueDates : [currentStage.period.startDate])}
                       autoFocus={false}
-                      
+
                           />
                         {/* /.calendar */}
                           {/* /.calendar */}
@@ -262,9 +280,9 @@ class SingleProduct extends Component {
                       {/* /.widget__head */}
                       <div className="widget__body">
                         <div className="widget__actions">
-                          <a href="#" className="widget__btn btn-danger">
+                          <button onClick={() => addToCart(product.id)}  className="widget__btn btn-danger">
                             S’inscrire À Ce Stage
-                          </a>
+                          </button>
                           <button
                             onClick={() => addToCart(product.id)}
                             className="widget__btn widget__btn--info btn"

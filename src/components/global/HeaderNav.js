@@ -58,7 +58,7 @@ class HeaderNav extends Component {
             <nav className="nav">
               <ul>
                 <li className="signup">
-                  <a href="#">Devenir Enseignant</a>
+                  <a href="https://candidature.cours-masson.com/#/">Devenir Enseignant</a>
                 </li>
 
                 <li>
@@ -70,7 +70,7 @@ class HeaderNav extends Component {
                 </li>
 
                 <li>
-                  <a href="#">Panier</a>
+                  <a href="/cart">Panier</a>
                 </li>
 
                 <li>

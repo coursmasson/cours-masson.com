@@ -35,7 +35,7 @@ class HomeHeader extends Component {
           <div className="header-container">
               <div className="content">
                   <h1>I love carpet. I love desk.</h1>
-                  <a className="btn" href="/" onClick={(e) => {toProducts();e.preventDefault()}}>I love lamp</a>
+                  <a className="btn" href="/" onClick={(e) => {toProducts();e.preventDefault()}}>Cours Masson</a>
               </div>
           </div>
           <div className="down-arrow" aria-hidden="true"><span className="arrow">	&#10095; </span></div>

@@ -8,7 +8,7 @@ function mapStateToProps(state) {
 };
 
 class ProductHeader extends Component {
-  
+
   componentWillMount() {
        const script = document.createElement("script");
 
@@ -17,9 +17,9 @@ class ProductHeader extends Component {
 
        document.body.appendChild(script);
    }
-  
+
   render() {
-    
+
     // var ID = this.props.router.location.pathname.slice(9, 100)
 
     // var productArray = this.props.products.products.data.filter(function(product) {
@@ -27,7 +27,7 @@ class ProductHeader extends Component {
     // })
 
     let product = this.props.product
-    
+
     var toProducts = () => {
       this.props.dispatch((dispatch) => {
         dispatch(push('/products'))
@@ -92,7 +92,7 @@ class ProductHeader extends Component {
                   <a href="#">Aide</a>
                 </li>
                 <li>
-                  <a href="#">Panier</a>
+                  <a href="/cart">Panier</a>
                 </li>
                 <li>
                   <a href="#">Connexion</a>
